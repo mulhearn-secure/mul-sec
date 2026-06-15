@@ -1,0 +1,153 @@
+deception and disruption
+honeypots
+attract the bad guys
+the attackers is probably a machine
+create a virtual world to explore
+most are open source and can be downloaded
+multiple honey pots are a honey net, make the trap look realer
+project.honeypot.org
+honey files are bait
+no one should be accessing them, this is a tripwire
+honey token, traceable data, API credentials to see who uses them
+fake email addresses, and see who contacts them
+database records, browser cookies, web page pixels
+
+change management
+upgrade software, patch an application, change firewall configs, modify ports
+
+one of the most common risks on the enterprise, happens all the time
+
+have clear policies, frequency duration, installation process, rollback procedures
+
+formal process for managing changes
+avoid downtime, confusion, mistakes
+
+have a approval process,
+complete request forms
+determine the purpose
+identify the scope
+schedule a date and time
+list affected systems and the impact
+analyze the risk with the change
+get approval from the board
+get end use acceptance after the change is complete
+
+
+an individual or entity needs to make a change
+they own the process
+they dot usually perform the change
+the owner managers the process
+process updates are provided to the owner
+ensures the process is followed and acceptable
+IE, shipping department owns the process, it handles the changes
+
+stakeholders
+who is impacted by this change
+they will want to have input on the process
+this may not be as obvious as you think
+
+impact analysis
+determine a risk value
+high med low
+
+the risks can be minor or far reaching
+the fix doesn't fix anything
+the fix breaks something else
+op system fails,
+data corruption
+
+risks of not making the change
+security vulnerability
+application unavailability
+unexpected downtime to other services
+
+sandbox testing environment
+no connection to the real world or prod system
+technology safe space
+
+use before making a change to production
+try the upgrade apply the patch
+test and confirm before deployment
+
+confirm the backout plan
+move everything back to the original
+a sandbox cant consider every possibility
+
+THE CHANGE WILL WORK PERFECTLY AND NOTHING WILL EVER GO BAD
+(of course it will)
+
+you should always have a way to revert your changes
+prepare for the worst, hope for the best
+
+this isn't as easy as it sounds
+some changes are difficult to revert
+
+always have backups
+always have good backups
+
+whens the the change happening
+this might be the most difficult part of the process
+
+during the workday may not be the best option
+overnights are often a better choice
+
+The tie of year may be a consideration
+retail networks are frozen during the holiday season
+
+--standard operating procedure
+-change management is critical,
+-affects everyone in the organization
+
+the process must be well documented
+    should be available on the intranet
+    along with all standard processes and procedures
+
+changes to the process are reflected in the standards
+    a living document!!!!!!  <lookup living document
+
+Technical change management
+
+put the change management process into action
+EXECUTE THE PLAN
+
+theirs no such thing as a simple upgrade
+    can have many moving parts
+    separate events may be required
+
+change management is often concerned with 'what' needs to change
+    the tech team is concerned with 'how' to change it
+
+allow list/deny list
+any applications can be dangerous
+    vulnerability, Trojan horses, malware
+
+security policy can control app execution
+    allow list, deny/block list
+
+allow list
+    nothing runs unless its approved
+    very restrictive
+
+deny list
+    nothing on the 'bad list' can be executed
+    antivirus anti malware
+    will not stop Trojan horses if they replace allowed software
+
+    restricted activities
+    the scope of change is important
+    defines exactly which components are covered
+
+a change approval isn't permission to make any change
+    the change control approval is very specific, don't change stuff at random just because
+
+The scope may need to be expanded during the change window
+    its impossible to prepare for all possible outcomes
+
+the change management process determines the next steps
+    there are processes in place to make the change successful
+
+Downtime
+services will eventually be unavailable
+the change process can be disruptive
+usually scheduled during non-production hours
+

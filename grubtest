@@ -1,0 +1,52 @@
+#!/bin/bash
+# Fedora GRUB + Kernel Post-Update Verification Script
+# Run this AFTER reboot
+
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+OUTPUT_FILE="grub-check_${TIMESTAMP}.txt"
+
+echo "=== Fedora GRUB & Kernel Verification ===" | tee "$OUTPUT_FILE"
+echo "Run date: $(date)" | tee -a "$OUTPUT_FILE"
+echo "Hostname: $(hostname)" | tee -a "$OUTPUT_FILE"
+echo "=====================================================================" | tee -a "$OUTPUT_FILE"
+
+{
+    echo "1. GRUB Version:"
+    grub2-install --version 2>/dev/null || echo "grub2-install not found"
+
+    echo -e "\n2. Installed GRUB Packages:"
+    rpm -q grub2-efi-x64 grub2-tools grub2-common grub2-efi-x64-modules
+
+    echo -e "\n3. Currently Running Kernel:"
+    uname -r
+
+    echo -e "\n4. All Installed Kernels:"
+    rpm -q kernel kernel-core
+
+    echo -e "\n5. Default Kernel (grubby):"
+    grubby --default-kernel
+
+    echo -e "\n6. Boot Loader Entries:"
+    ls -l /boot/loader/entries/ 2>/dev/null || echo "No /boot/loader/entries found"
+
+    echo -e "\n7. Kernel Images in /boot:"
+    ls -l /boot/vmlinuz* 2>/dev/null || echo "No vmlinuz files found"
+
+    echo -e "\n8. EFI Directory (if UEFI):"
+    ls -l /boot/efi/EFI/fedora/ 2>/dev/null || echo "EFI directory not found"
+
+    echo -e "\n9. System Firmware Type:"
+    [ -d /sys/firmware/efi ] && echo "UEFI system" || echo "Legacy BIOS system"
+
+    echo -e "\n10. GRUB Config Summary:"
+    ls -l /boot/grub2/grub.cfg /boot/loader/entries/* 2>/dev/null | head -n 15
+
+} | tee -a "$OUTPUT_FILE"
+
+echo -e "\n✅ Check completed! Output saved to: $OUTPUT_FILE" | tee -a "$OUTPUT_FILE"
+echo "You can now share this file if you need help reviewing it."
+
+# Optional: open the file automatically
+if command -v xdg-open >/dev/null; then
+    xdg-open "$OUTPUT_FILE" 2>/dev/null &
+fi
