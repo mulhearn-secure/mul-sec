@@ -1,0 +1,19 @@
+sy-oop controls use people
+phisical controls limit phyisical acess guards, fences, locs, badges
+technical preventing acces to a resorce
+
+corrective contol types
+corrective apply a control after the event
+-701-1.1
+get the control categories and types screen 10.48
+
+compensating, control o
+prevent the exploittion of a weeknesusing other means
+
+store all sensitvie files in a protected folder
+create compliance policies and procedures
+
+ directive - direct a subject towrds security compliance, 
+train users
+post signs
+

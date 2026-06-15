@@ -1,0 +1,205 @@
+sy0791
+the cia triad
+sometimes called aic triad
+
+avaiablity integrety confidenitaly
+certain information should be only eb knon to certain people
+
+prevent unautherized information disclosure
+encryption
+access controls
+two factor authentiation
+
+provite integrety by hashing
+digitl signatures
+thats a hash, not a signature by e pen
+certifictes
+identify a device or person
+non-repudiation, proof of integreity
+
+information is accessible to uthorized users
+redundancy, fult tolerance, patching
+
+non repudiation
+you cant deny what youve said, no take baxies
+sign a contract, non repuditaion is a cignature
+
+verfy daya does not change and is the same as it was sent
+in cyrptography we use a hash
+ if the data changes, the has changes
+ does not necessarily associate data with an ndividual tells you data has changed
+
+ preform a diff between files, this proves integrety
+
+ prove the ouche of the message, authentication
+ non repudiation, prove by a digital signature
+ this a private key, onlyknow to the sender
+ verify with a public key associated with a private key
+
+ aaa framework
+ identification
+ username
+ authentication
+ password / biomatrics
+ authorization
+ basied on id what access do you have
+ accounting
+ log in, what they did, and when they left
+
+ client - internet - firewall, - then aaa server - then file server after accounting
+
+ use an digitaly signed ertificate on the device
+ an organisation has a trusted certificate authority the ca
+ orgs maintain there own
+ one cert per device signed by the users
+
+ a root ca signes the certificates
+
+ uthoruization model
+ suers and sercices - data and applications
+
+ simple relationship user - resource
+ does not scale, and why auth exists???
+
+ abstraction layer, reduce complexity and create a relationship between the user and the resource
+  accounting
+ohh, this is groups,
+
+
+gap analysis
+where we are, vs whre we want to be
+work to a known baseline
+ie nist, iso iec
+get a baseline of employees
+examne the current process
+evaluate existing systems
+identify weakness
+detailed analysis
+the final comparison
+detaild baseline objectis, a clear view of the current state - need a path to get from a to b
+time to create the gap alanysis report
+
+zero trust
+many networks are open in the inside, few securiy controls
+zero trust is holistic,
+everything must be verified
+nothing is trusted
+
+split the network into functional planes
+applies to phyisical verityal and cloud components
+data planesprocess the frames packets and network data
+processing forwarding trunking encrypt nat
+
+control planes
+manages the actions of the data planes
+define policeis and rules
+
+seperate into functional tasks,
+incorporate into hardware of software
+
+adaptive identity
+consider the source and the requested resources
+multiple risk indicators, relationship to theorg, location, type of connection make the authentication stronger
+ie if a person in china wants information on a person in america
+
+are they emplye, contractor, full part time,
+
+threat scope redcution,
+decrease the number of entry points
+policy driven access control
+combine the adaptie identity with a predefined set of rules
+
+security zones
+security s more than a one to one relationship
+
+where are you coming from and where are you going,
+trusted untrusted
+internal external,
+what vpn, what department
+use the zones to deny access, for ex block untrusted to trusted zone traffic
+some zones are implicitly trusted,
+for ex trusted to interal zone traffic
+
+subject and systems
+end users, applications, non-human entities
+subject - ststem - untrusted [policy enforcement point PEP] trusted
+dont forget PEP, policy enforcement point, (even i can see a test point)
+
+pep is the gatekeeper, who allwos or disalows traffic, multiple devices workign togeter to id traffic and uses, it d
+the policy enforcement point does not make a decision on weather traffic should be allowed or dislloed, thats the []policy decision pointPDP]
+so PEP gathers data from mulitple sources, and then passes that to PDP for examining the data and deciding if that machine is allowed on the network
+
+policy engine PE
+evaluates each access decision based on police and other information sources, grant deny or revoke
+
+policy administrator PA
+communicates with the PEP
+generates tones or credentials
+tells the PEP to allow or disallow access
+
+phisical security
+prevent access
+there are livits to the prevention
+
+channel peple through a specific point
+these can be safety contern,
+
+access control vestibules - mantraps or airlocks
+1 all doors unlocked, but onening on causes the others to lock
+2 all doors locked, unlocking one prevents theothers from being unlocked
+3 one door open one door locked, when one is open the other can not be unlocked
+
+one at a time, controlled groups, managed ontrol through an area
+
+fencing
+build a perimiter
+transparnt or opaque
+robust
+prevet climbing
+
+video surveillce
+cctv can replace physical guards
+camera features are important, motion regog can alarm and alert on-movement
+object detection id a license plate or face
+often  many diff cameras sent to a central point for review over time
+
+guards and access badges
+security guard phyiscal prot, validates id
+two persoon integrity / control
+no single person has access
+
+access badge, must be worn at all times, elecronicalylogged
+
+lighting,
+more llight means more security
+specialsed design, light levels,
+sensors
+infread radiaton, common in motion detectors and night vision
+pressure sensors - change in force
+floor and window sensors
+
+microwave
+detects movement over large areas
+ultrasonic
+reflective sound waves, detect motion
+
+deception and disruption
+honeypot at
+attract the bad guys, and trap them there
+the atacker is a machine, makes for redcution
+honey pots create a virtual world to explore
+honeynets
+the real netowkrs more thatn once device, so build a honey net of honeypots
+
+honeyfiles
+attract the attckers with more honey,
+create files with fake info
+bait could be password text
+an alert is sent if the file is accessed, as no one should norlamy be there
+
+honey token,
+tracable data on the honey net, so you know where it cae from
+api cred, are not usuable, just notify when untrusted
+fake email address
+
+
