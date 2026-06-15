@@ -1,7 +1,7 @@
 AFTER-ACTION REPORT: DNF5 Package Listing Failure on Fedora 44
 Date: June 07, 2026
-System: TUF Gaming Laptop (Alder Lake-N Platform)
-OS: Fedora 44 (DNF5)
+System: Tuofudun L10 Laptop (Alder Lake-N Platform)
+OS: Fedora 44 kde (DNF5)
 Subject: Resolution of dnf list installed returning no results despite functional RPM database
 
 1. Executive Summary
