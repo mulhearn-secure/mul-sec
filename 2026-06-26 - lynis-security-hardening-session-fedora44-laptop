@@ -50,7 +50,7 @@ Full functionality preserved (printing, networking, etc.)
 All changes were non-disruptive.
 Clear, measurable improvement in score.
 Good balance between security and usability.
-
+**Status**: Hardening successfully applied. System remains fully functional for daily use (printing + networking preserved).
 6. Opportunities for Improvement
 
 Lynis version still reports as outdated but is the latest build.
