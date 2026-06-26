@@ -1,0 +1,64 @@
+After Action Review (AAR)
+Subject: Lynis Security Hardening Session – Fedora 44 (N100 Laptop)
+Date: 26 June 2026
+Hostname: tufundun-l10
+1. Objective
+Improve the system’s security posture as measured by Lynis.
+2. Initial State
+
+Hardening Index: 70
+Several weak kernel parameters, umask, password aging, etc.
+
+3. Actions Taken & Commands Used
+Kernel Hardening:
+Bashsudo tee /etc/sysctl.d/99-hardening.conf << EOF
+fs.protected_fifos = 2
+fs.protected_regular = 2
+kernel.kptr_restrict = 2
+kernel.modules_disabled = 1
+kernel.sysrq = 0
+kernel.unprivileged_bpf_disabled = 1
+kernel.yama.ptrace_scope = 2
+net.core.bpf_jit_harden = 2
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.conf.default.log_martians = 1
+net.ipv4.conf.all.rp_filter = 1
+EOF
+
+sudo sysctl --system
+Password Policy:
+Bashsudo sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS   90/' /etc/login.defs
+sudo sed -i 's/^PASS_MIN_DAYS.*/PASS_MIN_DAYS   1/' /etc/login.defs
+sudo sed -i 's/^PASS_WARN_AGE.*/PASS_WARN_AGE   7/' /etc/login.defs
+Umask Improvement:
+Bashsudo bash -c 'echo "umask 027" >> /etc/profile.d/umask.sh'
+Hosts File Cleanup:
+Bashsudo cp /etc/hosts /etc/hosts.bak
+sudo awk '!seen[$0]++' /etc/hosts | sudo tee /etc/hosts
+Login Banners:
+Bashecho "Authorized access only. All activity is logged." | sudo tee /etc/issue /etc/issue.net
+4. Results
+
+Hardening Index improved from 70 → 75
+Kernel hardening section significantly improved (most items now compliant)
+Password aging now configured
+No new warnings created
+Full functionality preserved (printing, networking, etc.)
+
+5. What Went Well
+
+All changes were non-disruptive.
+Clear, measurable improvement in score.
+Good balance between security and usability.
+
+6. Opportunities for Improvement
+
+Lynis version still reports as outdated but is the latest build.
+No malware scanner or file integrity tool yet.
+Remaining service exposure and filesystem suggestions pending.
+
+7. Next Steps
+
+Install rkhunter and aide
+Update Lynis
+Schedule periodic audits
